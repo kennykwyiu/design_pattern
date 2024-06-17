@@ -11,11 +11,18 @@ public class Test {
 //    }
 
     //v3
+//    public static void main(String[] args) {
+//        Kenny kenny = new Kenny(new JavaCourse());
+//        kenny.studyUdemyCourse();
+//    }
+
     public static void main(String[] args) {
-        Kenny kenny = new Kenny(new JavaCourse());
+        Kenny kenny = new Kenny();
+        kenny.setiCourse(new JavaCourse());
+        kenny.studyUdemyCourse();
+        kenny.setiCourse(new FrontEndCourse());
         kenny.studyUdemyCourse();
     }
-
 
 
 }
