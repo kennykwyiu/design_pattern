@@ -10,9 +10,13 @@ public class Kenny {
 //    public void studyPythonCourse() {
 //        System.out.println("Kenny is studying Python course");
 //    }
+    private ICourse iCourse;
 
+    public Kenny(ICourse iCourse) {
+        this.iCourse = iCourse;
+    }
 
-    public void studyUdemyCourse(ICourse iCourse) {
+    public void studyUdemyCourse() {
         iCourse.studyCourse();
     }
 
