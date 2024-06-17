@@ -16,9 +16,14 @@ public class Kenny {
         this.iCourse = iCourse;
     }
 
+    public Kenny() {
+    }
+
     public void studyUdemyCourse() {
         iCourse.studyCourse();
     }
 
-
+    public void setiCourse(ICourse iCourse) {
+        this.iCourse = iCourse;
+    }
 }
