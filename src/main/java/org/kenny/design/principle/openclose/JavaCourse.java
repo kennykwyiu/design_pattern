@@ -25,4 +25,13 @@ public class JavaCourse implements ICourse {
     public Double getPrice() {
         return this.price;
     }
+
+    @Override
+    public String toString() {
+        return "JavaCourse{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +  '\'' +
+                '}';
+    }
 }
