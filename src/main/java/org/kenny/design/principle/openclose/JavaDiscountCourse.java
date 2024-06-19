@@ -5,12 +5,7 @@ public class JavaDiscountCourse extends JavaCourse {
         super(id, name, price);
     }
 
-    public Double getOriginalPrice() {
-        return super.getPrice();
-    }
-
-    @Override
-    public Double getPrice() {
+    public Double getDiscountPrice() {
         return super.getPrice() * 0.8;
     }
 
@@ -19,8 +14,8 @@ public class JavaDiscountCourse extends JavaCourse {
         return  "JavaCourse{" +
                 "id=" + super.getId() +
                 ", name='" + this.getName() + '\'' +
-                ", original price=" + this.getOriginalPrice() +  '\'' +
-                ", discounted price=" + this.getPrice() +  '\'' +
+                ", original price=" + super.getPrice() +  '\'' +
+                ", discounted price=" + this.getDiscountPrice() +  '\'' +
                 '}';
     }
 
