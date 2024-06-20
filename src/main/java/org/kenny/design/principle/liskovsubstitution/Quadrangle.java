@@ -1,4 +1,4 @@
-package org.kenny.design.principle.liskovSubstitution;
+package org.kenny.design.principle.liskovsubstitution;
 
 public interface Quadrangle {
     long getWidth();

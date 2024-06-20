@@ -1,4 +1,4 @@
-package org.kenny.design.principle.liskovSubstitution.methodinput;
+package org.kenny.design.principle.liskovsubstitution.methodinput;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package org.kenny.design.principle.liskovSubstitution;
+package org.kenny.design.principle.liskovsubstitution;
 
 public class Test {
     public static void resize(Rectangle rectangle) {
