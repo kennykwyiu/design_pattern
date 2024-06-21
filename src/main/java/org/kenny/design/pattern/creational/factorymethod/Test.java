@@ -2,16 +2,9 @@ package org.kenny.design.pattern.creational.factorymethod;
 
 public class Test {
     public static void main(String[] args) {
-//        Video video = new JavaVideo();
-//        video.produce();
-        VideoFactory videoFactory = new VideoFactory();
-        Video video = videoFactory.getVideo("javascript");
-        if (video == null) {
-            return;
-        }
+        VideoFactory videoFactory = new JavaVideoFactory();
+        Video video = videoFactory.getVideo();
         video.produce();
 
-        Video jsVideo = videoFactory.getVideo(JavaScriptVideo.class);
-        jsVideo.produce();
     }
 }
