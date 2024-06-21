@@ -10,5 +10,8 @@ public class Test {
             return;
         }
         video.produce();
+
+        Video jsVideo = videoFactory.getVideo(JavaScriptVideo.class);
+        jsVideo.produce();
     }
 }
