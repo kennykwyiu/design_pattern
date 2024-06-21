@@ -6,6 +6,8 @@ public class VideoFactory {
             return new JavaVideo();
         } else if ("python".equals(type)) {
             return new PythonVideo();
+        } else if ("javascript".equals(type)) {
+            return new JavaScriptVideo();
         }
         return null;
     }

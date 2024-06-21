@@ -5,7 +5,7 @@ public class Test {
 //        Video video = new JavaVideo();
 //        video.produce();
         VideoFactory videoFactory = new VideoFactory();
-        Video video = videoFactory.getVideo("java");
+        Video video = videoFactory.getVideo("javascript");
         if (video == null) {
             return;
         }
