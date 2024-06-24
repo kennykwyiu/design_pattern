@@ -36,7 +36,7 @@ public class Course {
         private String courseArticle;
         private String courseQA;
 
-        public CourseBuilder buildCourseName(String courseArticle) {
+        public CourseBuilder buildCourseName(String courseName) {
             this.courseName = courseName;
             return this;
         }
