@@ -13,6 +13,7 @@ public class LazySingleton {
             lazySingleton = new LazySingleton();
         }
         return lazySingleton;
+
 //        }
     }
 }
