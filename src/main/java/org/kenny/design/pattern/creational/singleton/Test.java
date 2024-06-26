@@ -1,10 +1,12 @@
 package org.kenny.design.pattern.creational.singleton;
 
 import java.io.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Objects;
 
 public class Test {
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
 //        LazySingleton lazySingleton = LazySingleton.getInstance();
 
 //        Thread t1 = new Thread(new T());
@@ -14,18 +16,31 @@ public class Test {
 //
 //        System.out.println("Program end");
 
+
+//        HungrySingleton instance = HungrySingleton.getInstance();
+//        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("singleton file"));
+//        oos.writeObject(instance);
+//
+//        File file = new File("singleton file");
+//        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+//
+//        HungrySingleton newInstance = (HungrySingleton) ois.readObject();
+//
+//        System.out.println(instance);
+//        System.out.println(newInstance);
+//
+//        System.out.println(Objects.equals(instance, newInstance));
+
+
+        Class objectClass = HungrySingleton.class;
+//        Class<?> aClass = Class.forName(HungrySingleton.class.getName());
+        Constructor constructor = objectClass.getDeclaredConstructor();
+        constructor.setAccessible(true);
         HungrySingleton instance = HungrySingleton.getInstance();
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("singleton file"));
-        oos.writeObject(instance);
-
-        File file = new File("singleton file");
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
-
-        HungrySingleton newInstance = (HungrySingleton) ois.readObject();
-
+        HungrySingleton object = (HungrySingleton) constructor.newInstance();
         System.out.println(instance);
-        System.out.println(newInstance);
+        System.out.println(object);
 
-        System.out.println(Objects.equals(instance, newInstance));
+        System.out.println(Objects.equals(instance, object));
     }
 }
