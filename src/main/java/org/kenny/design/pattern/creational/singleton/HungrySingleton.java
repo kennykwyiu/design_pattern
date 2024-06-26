@@ -11,7 +11,9 @@ public class HungrySingleton implements Serializable {
     }
 
     private HungrySingleton() {
-
+        if (hungrySingleton != null) {
+            throw new RuntimeException("Singleton cannot be initialized by reflection");
+        }
     }
 
     public static HungrySingleton getInstance() {
