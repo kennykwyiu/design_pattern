@@ -33,7 +33,7 @@ public class Test {
 
 
 //        Class objectClass = HungrySingleton.class;
-        Class objectClass = StaticInnerClassSingleton.class;
+        Class objectClass = LazySingleton.class;
 //        Class<?> aClass = Class.forName(HungrySingleton.class.getName());
 
         Constructor constructor = objectClass.getDeclaredConstructor();
@@ -42,8 +42,8 @@ public class Test {
 //        HungrySingleton instance = HungrySingleton.getInstance();
 //        HungrySingleton object = (HungrySingleton) constructor.newInstance();
 
-        StaticInnerClassSingleton instance = StaticInnerClassSingleton.getInstance();
-        StaticInnerClassSingleton object = (StaticInnerClassSingleton) constructor.newInstance();
+        LazySingleton instance = LazySingleton.getInstance();
+        LazySingleton object = (LazySingleton) constructor.newInstance();
         System.out.println(instance);
         System.out.println(object);
 
