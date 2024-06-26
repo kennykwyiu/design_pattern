@@ -1,6 +1,9 @@
 package org.kenny.design.pattern.creational.singleton;
 
-public class HungrySingleton {
+import java.io.Serializable;
+import java.util.Objects;
+
+public class HungrySingleton implements Serializable {
     private final static HungrySingleton hungrySingleton;
 
     static {
@@ -12,6 +15,10 @@ public class HungrySingleton {
     }
 
     public static HungrySingleton getInstance() {
+        return hungrySingleton;
+    }
+
+    private Object readResolve() {
         return hungrySingleton;
     }
 }
