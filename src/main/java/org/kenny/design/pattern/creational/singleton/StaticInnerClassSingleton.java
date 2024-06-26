@@ -9,6 +9,8 @@ public class StaticInnerClassSingleton {
         return InnerClass.staticInnerClassSingleton;
     }
     private StaticInnerClassSingleton() {
-
+        if (InnerClass.staticInnerClassSingleton != null) {
+            throw new RuntimeException("Singleton cannot be initialized by reflection");
+        }
     }
 }

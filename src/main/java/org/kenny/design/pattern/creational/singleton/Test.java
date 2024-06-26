@@ -32,12 +32,18 @@ public class Test {
 //        System.out.println(Objects.equals(instance, newInstance));
 
 
-        Class objectClass = HungrySingleton.class;
+//        Class objectClass = HungrySingleton.class;
+        Class objectClass = StaticInnerClassSingleton.class;
 //        Class<?> aClass = Class.forName(HungrySingleton.class.getName());
+
         Constructor constructor = objectClass.getDeclaredConstructor();
         constructor.setAccessible(true);
-        HungrySingleton instance = HungrySingleton.getInstance();
-        HungrySingleton object = (HungrySingleton) constructor.newInstance();
+
+//        HungrySingleton instance = HungrySingleton.getInstance();
+//        HungrySingleton object = (HungrySingleton) constructor.newInstance();
+
+        StaticInnerClassSingleton instance = StaticInnerClassSingleton.getInstance();
+        StaticInnerClassSingleton object = (StaticInnerClassSingleton) constructor.newInstance();
         System.out.println(instance);
         System.out.println(object);
 
