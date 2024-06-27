@@ -34,6 +34,10 @@ public class LazySingleton {
 
         LazySingleton o1 = LazySingleton.getInstance();
 
+        Field flag = o1.getClass().getDeclaredField("flag");
+        flag.setAccessible(true);
+        flag.set(o1, true);
+
         LazySingleton o2 = (LazySingleton) constructor.newInstance();
 
         System.out.println(o1);
