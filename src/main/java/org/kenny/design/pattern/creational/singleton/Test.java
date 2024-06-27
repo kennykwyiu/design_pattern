@@ -50,19 +50,38 @@ public class Test {
 //        System.out.println(Objects.equals(instance, object));
 
 
-        EnumInstance instance = EnumInstance.getInstance();
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("singleton file"));
-        oos.writeObject(instance);
+//        EnumInstance instance = EnumInstance.getInstance();
+//        instance.setData(new Object());
+//
+//        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("singleton file"));
+//        oos.writeObject(instance);
+//
+//        File file = new File("singleton file");
+//        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+//
+//        EnumInstance newInstance = (EnumInstance) ois.readObject();
+//
+//        System.out.println(instance.getData());
+//        System.out.println(newInstance.getData());
+//
+//        System.out.println(Objects.equals(instance, newInstance));
 
-        File file = new File("singleton file");
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+        Class objectClass = EnumInstance.class;
+//        Class<?> aClass = Class.forName(HungrySingleton.class.getName());
 
-        EnumInstance newInstance = (EnumInstance) ois.readObject();
+        Constructor constructor = objectClass.getDeclaredConstructor(String.class, int.class);
+        constructor.setAccessible(true);
+        EnumInstance object = (EnumInstance) constructor.newInstance("Kenny", 666);
 
-        System.out.println(instance);
-        System.out.println(newInstance);
+//        HungrySingleton instance = HungrySingleton.getInstance();
+//        HungrySingleton object = (HungrySingleton) constructor.newInstance();
 
-        System.out.println(Objects.equals(instance, newInstance));
+//        EnumInstance instance = EnumInstance.getInstance();
+//        EnumInstance object = (EnumInstance) constructor.newInstance();
+//        System.out.println(instance);
+        System.out.println(object);
+
+//        System.out.println(Objects.equals(instance, object));
 
     }
 }
