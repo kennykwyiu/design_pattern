@@ -17,5 +17,7 @@ public class ContainerSingleton {
         }
     }
 
-
+    public static Object getInstance(String key) {
+        return singletonMap.get(key);
+    }
 }
