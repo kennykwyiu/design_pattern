@@ -66,22 +66,15 @@ public class Test {
 //
 //        System.out.println(Objects.equals(instance, newInstance));
 
-        Class objectClass = EnumInstance.class;
-//        Class<?> aClass = Class.forName(HungrySingleton.class.getName());
+        // EnumInstance - reflection
+//        Class objectClass = EnumInstance.class;
+//        Constructor constructor = objectClass.getDeclaredConstructor(String.class, int.class);
+//        constructor.setAccessible(true);
+//        EnumInstance object = (EnumInstance) constructor.newInstance("Kenny", 666);
+//        System.out.println(object);
 
-        Constructor constructor = objectClass.getDeclaredConstructor(String.class, int.class);
-        constructor.setAccessible(true);
-        EnumInstance object = (EnumInstance) constructor.newInstance("Kenny", 666);
-
-//        HungrySingleton instance = HungrySingleton.getInstance();
-//        HungrySingleton object = (HungrySingleton) constructor.newInstance();
-
-//        EnumInstance instance = EnumInstance.getInstance();
-//        EnumInstance object = (EnumInstance) constructor.newInstance();
-//        System.out.println(instance);
-        System.out.println(object);
-
-//        System.out.println(Objects.equals(instance, object));
+        EnumInstance instance = EnumInstance.getInstance();
+        instance.printTest();
 
     }
 }

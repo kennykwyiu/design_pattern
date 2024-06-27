@@ -1,7 +1,12 @@
 package org.kenny.design.pattern.creational.singleton;
 
 public enum EnumInstance {
-    INSTANCE;
+    INSTANCE {
+        protected void printTest() {
+            System.out.println("Kenny print test");
+        }
+    };
+    protected abstract void printTest();
 
     private Object data;
 
