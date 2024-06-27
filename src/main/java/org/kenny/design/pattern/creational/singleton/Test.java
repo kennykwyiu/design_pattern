@@ -32,21 +32,37 @@ public class Test {
 //        System.out.println(Objects.equals(instance, newInstance));
 
 
-//        Class objectClass = HungrySingleton.class;
-        Class objectClass = LazySingleton.class;
-//        Class<?> aClass = Class.forName(HungrySingleton.class.getName());
+////        Class objectClass = HungrySingleton.class;
+//        Class objectClass = LazySingleton.class;
+////        Class<?> aClass = Class.forName(HungrySingleton.class.getName());
+//
+//        Constructor constructor = objectClass.getDeclaredConstructor();
+//        constructor.setAccessible(true);
+//
+////        HungrySingleton instance = HungrySingleton.getInstance();
+////        HungrySingleton object = (HungrySingleton) constructor.newInstance();
+//
+//        LazySingleton instance = LazySingleton.getInstance();
+//        LazySingleton object = (LazySingleton) constructor.newInstance();
+//        System.out.println(instance);
+//        System.out.println(object);
+//
+//        System.out.println(Objects.equals(instance, object));
 
-        Constructor constructor = objectClass.getDeclaredConstructor();
-        constructor.setAccessible(true);
 
-//        HungrySingleton instance = HungrySingleton.getInstance();
-//        HungrySingleton object = (HungrySingleton) constructor.newInstance();
+        EnumInstance instance = EnumInstance.getInstance();
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("singleton file"));
+        oos.writeObject(instance);
 
-        LazySingleton instance = LazySingleton.getInstance();
-        LazySingleton object = (LazySingleton) constructor.newInstance();
+        File file = new File("singleton file");
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+
+        EnumInstance newInstance = (EnumInstance) ois.readObject();
+
         System.out.println(instance);
-        System.out.println(object);
+        System.out.println(newInstance);
 
-        System.out.println(Objects.equals(instance, object));
+        System.out.println(Objects.equals(instance, newInstance));
+
     }
 }
