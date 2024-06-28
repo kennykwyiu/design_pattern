@@ -1,11 +1,11 @@
 package org.kenny.design.pattern.creational.prototype;
 
-public class Mail {
+public class Mail implements Cloneable {
     private String name;
     private String emailAddress;
     private String content;
 
-    public  Mail() {
+    public Mail() {
         System.out.println("Mail Class Constructor");
     }
 
@@ -39,6 +39,12 @@ public class Mail {
                 "name='" + name + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
                 ", content='" + content + '\'' +
-                '}';
+                '}' + super.toString();
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        System.out.println("clone mail object");
+        return super.clone();
     }
 }
