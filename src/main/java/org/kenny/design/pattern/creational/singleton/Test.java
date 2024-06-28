@@ -9,12 +9,12 @@ public class Test {
     public static void main(String[] args) throws IOException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
 //        LazySingleton lazySingleton = LazySingleton.getInstance();
 
-//        Thread t1 = new Thread(new T());
-//        Thread t2 = new Thread(new T());
-//        t1.start();
-//        t2.start();
-//
-//        System.out.println("Program end");
+        Thread t1 = new Thread(new T());
+        Thread t2 = new Thread(new T());
+        t1.start();
+        t2.start();
+
+        System.out.println("Program end");
 
 
 //        HungrySingleton instance = HungrySingleton.getInstance();
@@ -73,8 +73,8 @@ public class Test {
 //        EnumInstance object = (EnumInstance) constructor.newInstance("Kenny", 666);
 //        System.out.println(object);
 
-        EnumInstance instance = EnumInstance.getInstance();
-        instance.printTest();
+//        EnumInstance instance = EnumInstance.getInstance();
+//        instance.printTest();
 
     }
 }
