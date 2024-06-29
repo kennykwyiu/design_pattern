@@ -3,7 +3,7 @@ package org.kenny.design.pattern.creational.singleton;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class HungrySingleton implements Serializable {
+public class HungrySingleton implements Serializable, Cloneable {
     private final static HungrySingleton hungrySingleton;
 
     static {
@@ -22,5 +22,10 @@ public class HungrySingleton implements Serializable {
 
     private Object readResolve() {
         return hungrySingleton;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
