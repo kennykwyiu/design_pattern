@@ -26,6 +26,6 @@ public class HungrySingleton implements Serializable, Cloneable {
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
+        return getInstance();
     }
 }
