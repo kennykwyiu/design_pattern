@@ -1,21 +1,9 @@
 package org.kenny.design.pattern.structural.facade;
 
 public class GiftExchangeService {
-    private QualifyService qualifyService;
-    private PointsPaymentService pointsPaymentService;
-    private ShippingService shippingService;
-
-    public void setQualifyService(QualifyService qualifyService) {
-        this.qualifyService = qualifyService;
-    }
-
-    public void setPointsPaymentService(PointsPaymentService pointsPaymentService) {
-        this.pointsPaymentService = pointsPaymentService;
-    }
-
-    public void setShippingService(ShippingService shippingService) {
-        this.shippingService = shippingService;
-    }
+    private QualifyService qualifyService = new QualifyService();
+    private PointsPaymentService pointsPaymentService = new PointsPaymentService();
+    private ShippingService shippingService = new ShippingService();
 
     public void giftExchange(PointsGift pointsGift) {
         if (qualifyService.isAvailable(pointsGift)) {
