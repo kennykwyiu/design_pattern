@@ -6,6 +6,11 @@ public class SausageDecorator extends AbstractDecorator{
     }
 
     @Override
+    protected void doSomething() {
+        // if have some business logic in each case, can add it here
+    }
+
+    @Override
     protected String getDesc() {
         return super.getDesc() + " add a sausage";
     }

@@ -1,11 +1,13 @@
 package org.kenny.design.pattern.structural.decorator.v2;
 
-public class AbstractDecorator extends ABattercake {
+public abstract class AbstractDecorator extends ABattercake {
     private ABattercake aBattercake;
 
     public AbstractDecorator(ABattercake aBattercake) {
         this.aBattercake = aBattercake;
     }
+
+    protected abstract void doSomething();
 
     @Override
     protected String getDesc() {
