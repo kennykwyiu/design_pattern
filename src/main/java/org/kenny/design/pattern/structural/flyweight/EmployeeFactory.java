@@ -11,8 +11,12 @@ public class EmployeeFactory {
 
         if (manager == null) {
             manager = new Manager(department);
+            System.out.print("created department manager: " + department);
+            String reportContent = department + " department report: the report content is ...";
+            manager.setReportContent(reportContent);
+            System.out.println("created report content: " + reportContent);
+
             EMPLOYEE_MAP.put(department, manager);
-            System.out.println("created department manager: " + department);
         }
         return manager;
     }
