@@ -18,6 +18,5 @@ public class Test {
 
         System.out.println("a == b: "  + (a == b));
         System.out.println("c == b: " + (c == d));
-
     }
 }
