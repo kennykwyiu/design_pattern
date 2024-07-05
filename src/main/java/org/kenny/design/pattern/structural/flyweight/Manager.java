@@ -1,6 +1,7 @@
 package org.kenny.design.pattern.structural.flyweight;
 
 public class Manager implements Employee {
+    private String title = "department manager";
     private String department;
     private String reportContent;
 
