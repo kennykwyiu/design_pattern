@@ -17,7 +17,7 @@ public abstract class CatalogComponent {
         throw new UnsupportedOperationException("don't support getPrice operation");
     }
 
-    public void print(CatalogComponent catalogComponent) {
+    public void print() {
         throw new UnsupportedOperationException("don't support print operation");
     }
 }
