@@ -9,5 +9,15 @@ public class Test {
             Manager manager = (Manager) EmployeeFactory.getManager(department);
             manager.report();
         }
+
+        Integer a = Integer.valueOf(100);
+        Integer b = 100;
+
+        Integer c = Integer.valueOf(1000);
+        Integer d = 1000;
+
+        System.out.println("a == b: "  + (a == b));
+        System.out.println("c == b: " + (c == d));
+
     }
 }
