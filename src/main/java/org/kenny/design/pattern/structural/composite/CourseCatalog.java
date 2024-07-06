@@ -6,9 +6,11 @@ import java.util.List;
 public class CourseCatalog extends CatalogComponent {
     private List<CatalogComponent> items = new ArrayList<>();
     private String name;
+    private Integer level;
 
-    public CourseCatalog(String name) {
+    public CourseCatalog(String name, Integer level) {
         this.name = name;
+        this.level = level;
     }
 
     @Override
@@ -30,7 +32,12 @@ public class CourseCatalog extends CatalogComponent {
     public void print() {
         System.out.println(this.name);
         for (CatalogComponent catalogComponent : items) {
-            System.out.print("  ");
+            if (this.level != null) {
+                for (Integer i = 0; i < this.level; i++) {
+                    System.out.print("  ");
+
+                }
+            }
             catalogComponent.print();
         }
     }
