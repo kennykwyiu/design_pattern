@@ -17,13 +17,20 @@ public class CourseCatalog extends CatalogComponent {
     }
 
     @Override
+    public String getName(CatalogComponent catalogComponent) {
+        return this.name;
+    }
+
+    @Override
     public void remove(CatalogComponent catalogComponent) {
         items.remove(catalogComponent);
     }
 
     @Override
     public void print() {
+        System.out.println(this.name);
         for (CatalogComponent catalogComponent : items) {
+            System.out.print("  ");
             catalogComponent.print();
         }
     }
