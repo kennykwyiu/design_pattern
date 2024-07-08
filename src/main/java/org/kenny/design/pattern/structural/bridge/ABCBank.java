@@ -8,6 +8,7 @@ public class ABCBank extends Bank{
     @Override
     Account openAccount() {
         System.out.println("Open China Agricultural Bank account");
+        account.openAccount();
         return account;
     }
 }

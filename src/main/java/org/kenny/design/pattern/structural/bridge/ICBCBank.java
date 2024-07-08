@@ -8,6 +8,7 @@ public class ICBCBank extends Bank {
     @Override
     Account openAccount() {
         System.out.println("Open ICBC account");
+        account.openAccount();
         return account;
     }
 }
