@@ -3,6 +3,7 @@ package org.kenny.design.pattern.structural.proxy.staticproxy;
 import org.kenny.design.pattern.structural.proxy.IOrderService;
 import org.kenny.design.pattern.structural.proxy.Order;
 import org.kenny.design.pattern.structural.proxy.OrderServiceImpl;
+import org.kenny.design.pattern.structural.proxy.db.DataSourceContextHolder;
 
 public class OrderServiceStaticProxy {
     private IOrderService iOrderService;
@@ -13,6 +14,9 @@ public class OrderServiceStaticProxy {
         int userId = order.getUserId();
         int dbRouter = userId % 2;
         System.out.println("static proxy arrange [db" + dbRouter + "] to handle the data");
+
+        //todo setting dataSource;
+        DataSourceContextHolder.setDBType(String.valueOf(dbRouter));
 
         afterMethod();
         return iOrderService.saveOrder(order);
