@@ -16,7 +16,7 @@ public class OrderServiceStaticProxy {
         System.out.println("static proxy arrange [db" + dbRouter + "] to handle the data");
 
         //todo setting dataSource;
-        DataSourceContextHolder.setDBType(String.valueOf(dbRouter));
+        DataSourceContextHolder.setDBType("db" + String.valueOf(dbRouter));
 
         afterMethod();
         return iOrderService.saveOrder(order);
@@ -26,7 +26,7 @@ public class OrderServiceStaticProxy {
         System.out.println("static proxy before code");
     }
 
-    private  void afterMethod() {
+    private void afterMethod() {
         System.out.println("static proxy after code");
     }
 }
