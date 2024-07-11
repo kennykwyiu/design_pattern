@@ -9,20 +9,20 @@ public class OrderServiceStaticProxy {
     private IOrderService iOrderService;
 
     public int saveOrder(Order order) {
-        beforeMethod();
+        beforeMethod(order);
         iOrderService = new OrderServiceImpl();
+        int result = iOrderService.saveOrder(order);
+        afterMethod();
+        return result;
+    }
+
+    private void beforeMethod(Order order) {
         int userId = order.getUserId();
         int dbRouter = userId % 2;
         System.out.println("static proxy arrange [db" + dbRouter + "] to handle the data");
 
         //todo setting dataSource;
         DataSourceContextHolder.setDBType("db" + String.valueOf(dbRouter));
-
-        afterMethod();
-        return iOrderService.saveOrder(order);
-    }
-
-    private void beforeMethod() {
         System.out.println("static proxy before code");
     }
 
