@@ -25,6 +25,7 @@ public class OrderServiceDynamicProxy implements InvocationHandler {
         Object argObject = args[0];
         beforeMethod(argObject);
         Object object = method.invoke(target, args);
+        afterMethod();
         return object;
     }
 
