@@ -22,7 +22,10 @@ public class OrderServiceDynamicProxy implements InvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        return null;
+        Object argObject = args[0];
+        beforeMethod(argObject);
+        Object object = method.invoke(target, args);
+        return object;
     }
 
     private void beforeMethod(Object object) {
