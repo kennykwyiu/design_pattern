@@ -2,7 +2,12 @@ package org.kenny.design.pattern.behavioral.templatemethod;
 
 public abstract class ACourse {
     protected final void makeCourse() {
-
+        this.makePPT();
+        this.makeVideo();
+        if (needWriteArticle()) {
+            this.writeArticle();
+        }
+        this.packageCourse();
     }
 
     final void makePPT() {
