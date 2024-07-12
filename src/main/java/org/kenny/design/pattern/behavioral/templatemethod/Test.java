@@ -8,7 +8,7 @@ public class Test {
         System.out.println("--- backend design pattern course - [end] ---");
 
         System.out.println("--- front-end web development course - [start] ---");
-        ACourse webDevelopmentCourse = new WebDevelopmentCourse();
+        ACourse webDevelopmentCourse = new WebDevelopmentCourse(false);
         webDevelopmentCourse.makeCourse();
         System.out.println("--- front-end web development course - [end] ---");
     }
