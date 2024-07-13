@@ -7,7 +7,7 @@ public class CourseAggregateImpl implements CourseAggregate{
 
     private List courseList;
 
-    public CourseAggregateImpl(List courseList) {
+    public CourseAggregateImpl() {
         this.courseList = new ArrayList();
     }
 
