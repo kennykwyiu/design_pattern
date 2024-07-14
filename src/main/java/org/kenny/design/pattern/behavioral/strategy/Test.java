@@ -11,19 +11,28 @@ public class Test {
 //        promotionActivity1111.executePromotionStrategy();
 //    }
 
-    public static void main(String[] args) {
-        PromotionActivity promotionActivity = null;
-        String promotionKey = "CashCoupon";
+//    public static void main(String[] args) {
+//        PromotionActivity promotionActivity = null;
+//        String promotionKey = "CashCoupon";
+//
+//        if (StringUtils.equals(promotionKey, "CashCoupon")) {
+//            promotionActivity = new PromotionActivity(new CashCouponPromotionStrategy());
+//        } else if (StringUtils.equals(promotionKey, "CashRebate")) {
+//            promotionActivity = new PromotionActivity(new CashRebatePromotionStrategy());
+//        } else if (StringUtils.equals(promotionKey, "BuyOneGetOneFree")) {
+//            promotionActivity = new PromotionActivity(new BuyOneGetOneFreePromotionStrategy());
+//        } //....
+//
+//        promotionActivity.executePromotionStrategy();
+//    }
 
-        if (StringUtils.equals(promotionKey, "CashCoupon")) {
-            promotionActivity = new PromotionActivity(new CashCouponPromotionStrategy());
-        } else if (StringUtils.equals(promotionKey, "CashRebate")) {
-            promotionActivity = new PromotionActivity(new CashRebatePromotionStrategy());
-        } else if (StringUtils.equals(promotionKey, "BuyOneGetOneFree")) {
-            promotionActivity = new PromotionActivity(new BuyOneGetOneFreePromotionStrategy());
-        } //....
+    public static void main(String[] args) {
+
+        String promotionKey = "CASH_COUPON";
+        PromotionActivity promotionActivity = new PromotionActivity(PromotionStrategyFactory.getPromotionStrategy(promotionKey));
 
         promotionActivity.executePromotionStrategy();
     }
+
 
 }
