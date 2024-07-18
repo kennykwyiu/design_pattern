@@ -12,9 +12,9 @@ public class Teacher implements Observer {
 
 
     @Override
-    public void update(Observable o, Object arg) {
+    public void update(Observable o, Object arg) { 
         Course course = (Course) o;
         Question question = (Question) arg;
-        System.out.println(teacherName + " teacher's" + course.getCourseName() + " got a question from " + question.getUserName() + "! Question: " + question.getQuestionContent());
+        System.out.println(teacherName + " teacher's " + course.getCourseName() + " got a question from " + question.getUserName() + "! Question: " + question.getQuestionContent());
     }
 }
