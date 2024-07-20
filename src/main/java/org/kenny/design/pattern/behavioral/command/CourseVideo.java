@@ -11,6 +11,6 @@ public class CourseVideo {
     }
 
     public void close() {
-        System.out.println(this.name + "  course video is closed");
+        System.out.println(this.name + " course video is closed");
     }
 }
