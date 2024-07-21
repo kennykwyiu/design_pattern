@@ -35,8 +35,8 @@ public class Article {
         this.imgs = imgs;
     }
 
-    public ArticleMemento saveToMemento(ArticleMemento articleMemento) {
-        ArticleMemento articleMemento1 = new ArticleMemento(this.title, this.content, this.imgs);
+    public ArticleMemento saveToMemento() {
+        ArticleMemento articleMemento = new ArticleMemento(this.title, this.content, this.imgs);
         return articleMemento;
     }
 
