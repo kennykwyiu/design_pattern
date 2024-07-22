@@ -33,11 +33,15 @@ public class Test {
 
         System.out.println("pop out from stack 1");
         articleMemento = articleMementoManager.getMemento();
+        System.out.println("articleMemento: " +articleMemento);
+
         article.undoFromMemento(articleMemento);
         System.out.println(article);
 
         System.out.println("pop out from stack 2");
         articleMemento = articleMementoManager.getMemento();
+        System.out.println("articleMemento: " +articleMemento);
+
         article.undoFromMemento(articleMemento);
         System.out.println(article);
 
