@@ -6,9 +6,11 @@ public class ServerConfigurationApp {
 
         ServerConfiguration webServerConfig = configurationManager.createServerConfiguration("web");
         webServerConfig.setup();
+        System.out.println();
 
         ServerConfiguration databaseServerConfig = configurationManager.createServerConfiguration("database");
         databaseServerConfig.setup();
+        System.out.println();
 
         ServerConfiguration cacheServerConfig = configurationManager.createServerConfiguration("cache");
         cacheServerConfig.setup();
