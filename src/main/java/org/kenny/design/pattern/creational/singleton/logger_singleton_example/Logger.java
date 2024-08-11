@@ -14,8 +14,16 @@ public class Logger {
         return instance;
     }
 
-    public void log(String message) {
-        System.out.println("[LOG] " + message);
+    public void info(String message) {
+        log("[INFO] " + message);
     }
-    // Additional logger methods and configurations
+
+    public void error(String message) {
+        log("[ERROR] " + message);
+    }
+
+    private void log(String message) {
+        System.out.println(message);
+        // Additional log handling logic
+    }
 }
