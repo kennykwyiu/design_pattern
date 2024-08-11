@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomLogger {
-    private static CustomLogger instance;
+    private static volatile  CustomLogger instance;
     private List<Appender> appenders;
 
     private CustomLogger() {
@@ -13,13 +13,19 @@ public class CustomLogger {
 
     public static synchronized CustomLogger getInstance() {
         if (instance == null) {
-            instance = new CustomLogger();
+            synchronized (CustomLogger.class) {
+                if (instance == null) {
+                    instance = new CustomLogger();
+                }
+            }
         }
         return instance;
     }
 
     public void addAppender(Appender appender) {
-        appenders.add(appender);
+        synchronized (appender) {
+            appenders.add(appender);
+        }
     }
 
     public void info(String message) {
@@ -31,8 +37,10 @@ public class CustomLogger {
     }
 
     private void log(LogLevel level, String message) {
-        for (Appender appender : appenders) {
-            appender.append(level, message);
+        synchronized (appenders) {
+            for (Appender appender : appenders) {
+                appender.append(level, message);
+            }
         }
     }
 }
