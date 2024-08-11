@@ -1,15 +1,19 @@
 package org.kenny.design.pattern.creational.singleton.logger_singleton_example;
 
 public class Logger {
-    private static Logger instance;
+    private static volatile Logger instance;
 
     private Logger() {
         // Private constructor to prevent instantiation
     }
 
-    public static synchronized Logger getInstance() {
+    public static Logger getInstance() {
         if (instance == null) {
-            instance = new Logger();
+            synchronized (Logger.class) {
+                if (instance == null) {
+                    instance = new Logger();
+                }
+            }
         }
         return instance;
     }
