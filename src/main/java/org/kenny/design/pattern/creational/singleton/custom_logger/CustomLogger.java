@@ -11,7 +11,7 @@ public class CustomLogger {
         appenders = new ArrayList<>();
     }
 
-    public static synchronized CustomLogger getInstance() {
+    public static CustomLogger getInstance() {
         if (instance == null) {
             synchronized (CustomLogger.class) {
                 if (instance == null) {
