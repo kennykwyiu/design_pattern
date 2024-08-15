@@ -3,3 +3,5 @@ package org.kenny.design.pattern.structural.flyweight.text_formatting_in_documen
 public interface Font {
     void applyFont();
 }
+
+
