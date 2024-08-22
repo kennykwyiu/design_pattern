@@ -22,5 +22,14 @@ public class Portfolio implements FinancialElement {
             element.display();
         }
     }
+
+    @Override
+    public double calculateValue() {
+        double totalValue = 0;
+        for (FinancialElement element : elements) {
+            totalValue += element.calculateValue();
+        }
+        return totalValue;
+    }
 }
 
