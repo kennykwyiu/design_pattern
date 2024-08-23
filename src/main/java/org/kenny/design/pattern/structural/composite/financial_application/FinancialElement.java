@@ -4,4 +4,5 @@ public interface FinancialElement {
     void display();
     double calculateValue();
     void trackPerformance(double price);
+    double calculateRisk();
 }
