@@ -2,24 +2,21 @@ package org.kenny.design.pattern.structural.composite.financial_application;
 
 public class FinancialApplication {
     public static void main(String[] args) {
+        Portfolio portfolio = new Portfolio("Investment Portfolio");
+
         FinancialElement stock = new FinancialInstrument("AAPL", 1500.0);
         FinancialElement bond = new FinancialInstrument("Government Bond", 2000.0);
 
-        Portfolio portfolio1 = new Portfolio("Investment Portfolio");
-        portfolio1.addElement(stock);
-        portfolio1.addElement(bond);
+        portfolio.addElement("AAPL", stock);
+        portfolio.addElement("Bond", bond);
 
-        FinancialElement gold = new FinancialInstrument("Gold ETF", 3000.0);
-        Portfolio portfolio2 = new Portfolio("Retirement Portfolio");
-        portfolio2.addElement(gold);
+        portfolio.display();
 
-        PortfolioGroup portfolioGroup = new PortfolioGroup("All Portfolios");
-        portfolioGroup.addPortfolio(portfolio1);
-        portfolioGroup.addPortfolio(portfolio2);
+        // Track performance
+        double currentPriceAAPL = 1600.0;
+        double currentPriceBond = 2050.0;
 
-        portfolioGroup.display();
-
-        double totalValue = portfolioGroup.calculateValue();
-        System.out.println("Total Value of All Portfolios: $" + totalValue);
+        portfolio.trackPerformance(currentPriceAAPL);
+        portfolio.trackPerformance(currentPriceBond);
     }
 }
