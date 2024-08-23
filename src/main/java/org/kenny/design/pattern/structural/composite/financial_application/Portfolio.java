@@ -42,5 +42,14 @@ public class Portfolio implements FinancialElement {
             element.trackPerformance(price);
         }
     }
+
+    @Override
+    public double calculateRisk() {
+        double totalRisk = 0;
+        for (FinancialElement element : elements.values()) {
+            totalRisk += element.calculateRisk();
+        }
+        return totalRisk / elements.size();
+    }
 }
 
