@@ -31,4 +31,9 @@ public class PortfolioGroup implements FinancialElement {
         }
         return totalValue;
     }
+
+    @Override
+    public void trackPerformance(double price) {
+
+    }
 }
