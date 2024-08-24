@@ -5,4 +5,5 @@ public interface FinancialElement {
     double calculateValue();
     void trackPerformance(double price);
     double calculateRisk();
+    double simulateInvestment(int days, double[] priceHistory);
 }
