@@ -6,4 +6,5 @@ public interface FinancialElement {
     void trackPerformance(double price);
     double calculateRisk();
     double simulateInvestment(int days, double[] priceHistory);
+    void rebalancePortfolio(double[] targetPercentages);
 }
