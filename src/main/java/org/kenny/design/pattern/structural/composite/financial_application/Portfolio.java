@@ -8,9 +8,30 @@ import java.util.Map;
 public class Portfolio implements FinancialElement {
     private String name;
     private Map<String, FinancialElement> elements = new HashMap<>();
+    private List<Goal> goals = new ArrayList<>();
 
     public Portfolio(String name) {
         this.name = name;
+    }
+
+    public void addGoal(String name, double targetAmount) {
+        goals.add(new Goal(name, targetAmount));
+    }
+
+    public void addAmountToGoal(String goalName, double amount) {
+        for (Goal goal : goals) {
+            if (goal.getName().equals(goalName)) {
+                goal.addAmount(amount);
+                break;
+            }
+        }
+    }
+
+    public void displayGoals() {
+        System.out.println("Goals for Portfolio: " + name);
+        for (Goal goal : goals) {
+            goal.display();
+        }
     }
 
     public void addElement(String symbol, FinancialElement element) {
@@ -61,6 +82,18 @@ public class Portfolio implements FinancialElement {
             }
         }
         return calculateValue();
+    }
+
+    @Override
+    public void rebalancePortfolio(double[] targetPercentages) {
+        double totalValue = calculateValue();
+        for (FinancialElement element : elements.values()) {
+            double targetValue = totalValue * targetPercentages[0];  // Assuming rebalancing for one asset
+            double currentValue = element.calculateValue();
+            double adjustment = targetValue - currentValue;
+            // Perform actual rebalancing actions here
+            System.out.println("Rebalancing " + element + " by " + adjustment);
+        }
     }
 }
 
