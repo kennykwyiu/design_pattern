@@ -26,5 +26,19 @@ public class FinancialApplication {
 
         double finalValue = portfolio.simulateInvestment(30, priceHistory);
         System.out.println("Final Portfolio Value after 30 days: $" + finalValue);
+
+        // Rebalance the portfolio
+        double[] targetPercentages = {0.6, 0.4}; // Assuming 60% stocks and 40% bonds
+        portfolio.rebalancePortfolio(targetPercentages);
+
+
+        // Add goals to the portfolio
+        portfolio.addGoal("Retirement", 1000000);
+        portfolio.addAmountToGoal("Retirement", 50000);
+        portfolio.addGoal("House Purchase", 500000);
+        portfolio.addAmountToGoal("House Purchase", 25000);
+
+        // Display goals
+        portfolio.displayGoals();
     }
 }
