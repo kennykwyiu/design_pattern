@@ -34,5 +34,14 @@ public class FinancialInstrument implements FinancialElement {
         return volatility;
     }
 
+    @Override
+    public double simulateInvestment(int days, double[] priceHistory) {
+        double totalReturn = 0;
+        for (int i = 0; i < days; i++) {
+            trackPerformance(priceHistory[i]);
+        }
+        return value;
+    }
+
 }
 
