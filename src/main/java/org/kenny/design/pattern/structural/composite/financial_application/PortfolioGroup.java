@@ -41,4 +41,9 @@ public class PortfolioGroup implements FinancialElement {
     public double calculateRisk() {
         return 0;
     }
+
+    @Override
+    public double simulateInvestment(int days, double[] priceHistory) {
+        return 0;
+    }
 }
