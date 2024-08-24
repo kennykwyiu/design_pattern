@@ -43,5 +43,10 @@ public class FinancialInstrument implements FinancialElement {
         return value;
     }
 
+    @Override
+    public void rebalancePortfolio(double[] targetPercentages) {
+        // Not applicable for individual financial instruments
+    }
+
 }
 

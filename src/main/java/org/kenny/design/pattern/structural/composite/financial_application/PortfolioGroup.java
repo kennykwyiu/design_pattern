@@ -46,4 +46,9 @@ public class PortfolioGroup implements FinancialElement {
     public double simulateInvestment(int days, double[] priceHistory) {
         return 0;
     }
+
+    @Override
+    public void rebalancePortfolio(double[] targetPercentages) {
+
+    }
 }
