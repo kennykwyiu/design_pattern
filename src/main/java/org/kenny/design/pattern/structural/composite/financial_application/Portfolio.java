@@ -51,5 +51,16 @@ public class Portfolio implements FinancialElement {
         }
         return totalRisk / elements.size();
     }
+
+    @Override
+    public double simulateInvestment(int days, double[] priceHistory) {
+        double totalReturn = 0;
+        for (int i = 0; i < days; i++) {
+            for (FinancialElement element : elements.values()) {
+                element.trackPerformance(priceHistory[i]);
+            }
+        }
+        return calculateValue();
+    }
 }
 
