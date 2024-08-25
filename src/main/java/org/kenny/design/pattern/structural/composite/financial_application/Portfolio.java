@@ -9,6 +9,8 @@ public class Portfolio implements FinancialElement {
     private String name;
     private Map<String, FinancialElement> elements = new HashMap<>();
     private List<Goal> goals = new ArrayList<>();
+    private List<News> newsList = new ArrayList<>();
+    private List<MarketUpdate> marketUpdates = new ArrayList<>();
 
     public Portfolio(String name) {
         this.name = name;
@@ -93,6 +95,28 @@ public class Portfolio implements FinancialElement {
             double adjustment = targetValue - currentValue;
             // Perform actual rebalancing actions here
             System.out.println("Rebalancing " + element + " by " + adjustment);
+        }
+    }
+
+    public void addNews(News news) {
+        newsList.add(news);
+    }
+
+    public void addMarketUpdate(MarketUpdate update) {
+        marketUpdates.add(update);
+    }
+
+    public void displayNews() {
+        System.out.println("Latest News:");
+        for (News news : newsList) {
+            news.display();
+        }
+    }
+
+    public void displayMarketUpdates() {
+        System.out.println("Market Updates:");
+        for (MarketUpdate update : marketUpdates) {
+            update.display();
         }
     }
 }
