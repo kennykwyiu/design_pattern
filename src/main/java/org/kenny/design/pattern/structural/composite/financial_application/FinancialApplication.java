@@ -40,5 +40,19 @@ public class FinancialApplication {
 
         // Display goals
         portfolio.displayGoals();
+
+        News news1 = new News("Tech Stocks Surge", "Technology sector sees a significant increase in stock prices.");
+        News news2 = new News("Interest Rates Update", "Federal Reserve announces changes in interest rates.");
+        MarketUpdate marketUpdate1 = new MarketUpdate("AAPL", 1600.0);
+        MarketUpdate marketUpdate2 = new MarketUpdate("GOOGL", 2500.0);
+
+        portfolio.addNews(news1);
+        portfolio.addNews(news2);
+        portfolio.addMarketUpdate(marketUpdate1);
+        portfolio.addMarketUpdate(marketUpdate2);
+
+        // Display news and market updates
+        portfolio.displayNews();
+        portfolio.displayMarketUpdates();
     }
 }
