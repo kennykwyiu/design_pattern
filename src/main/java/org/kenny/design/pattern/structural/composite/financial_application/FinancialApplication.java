@@ -54,5 +54,16 @@ public class FinancialApplication {
         // Display news and market updates
         portfolio.displayNews();
         portfolio.displayMarketUpdates();
+
+        // Add alerts
+        portfolio.addAlert("AAPL", 1600.0, "AAPL has reached the target price.");
+        portfolio.addAlert("GOOGL", 2500.0, "GOOGL has reached the target price.");
+
+        // Check alerts based on current prices
+        double currentPriceAaplForAlerts = 1630.0;
+        double currentPriceGOOGLForAlerts = 2520.0;
+
+        portfolio.checkAlerts(currentPriceAaplForAlerts);
+        portfolio.checkAlerts(currentPriceGOOGLForAlerts);
     }
 }
