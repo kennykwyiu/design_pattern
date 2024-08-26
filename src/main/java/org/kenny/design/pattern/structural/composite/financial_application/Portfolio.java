@@ -11,6 +11,7 @@ public class Portfolio implements FinancialElement {
     private List<Goal> goals = new ArrayList<>();
     private List<News> newsList = new ArrayList<>();
     private List<MarketUpdate> marketUpdates = new ArrayList<>();
+    private List<Alert> alerts = new ArrayList<>();
 
     public Portfolio(String name) {
         this.name = name;
@@ -117,6 +118,16 @@ public class Portfolio implements FinancialElement {
         System.out.println("Market Updates:");
         for (MarketUpdate update : marketUpdates) {
             update.display();
+        }
+    }
+
+    public void addAlert(String symbol, double targetPrice, String message) {
+        alerts.add(new Alert(symbol, targetPrice, message));
+    }
+
+    public void checkAlerts(double currentPrice) {
+        for (Alert alert : alerts) {
+            alert.checkAlert(currentPrice);
         }
     }
 }
