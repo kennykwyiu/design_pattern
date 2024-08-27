@@ -10,5 +10,16 @@ public class ECommercePlatformExample {
 
         creditCardGateway.processPayment();
         walletGateway.processPayment();
+
+
+        System.out.println("demonstrate the use of additional payment processors for Venmo and Apple Pay");
+        PaymentProcessor venmoProcessor = new VenmoPaymentProcessor();
+        PaymentProcessor applePayProcessor = new ApplePayPaymentProcessor();
+
+        PaymentGateway mobilePaymentGateway = new MobilePaymentGateway(venmoProcessor);
+        PaymentGateway cryptoPaymentGateway = new CryptoPaymentGateway(applePayProcessor);
+
+        mobilePaymentGateway.processPayment();
+        cryptoPaymentGateway.processPayment();
     }
 }
