@@ -4,9 +4,10 @@ public class ECommercePlatformExample {
     public static void main(String[] args) {
         PaymentProcessor paypalProcessor = new PayPalPaymentProcessor();
         PaymentProcessor stripeProcessor = new StripePaymentProcessor();
+        TransactionLogger consoleLogger = new ConsoleTransactionLogger();
 
         PaymentGateway creditCardGateway = new CreditCardPaymentGateway(paypalProcessor);
-        PaymentGateway walletGateway = new WalletPaymentGateway(stripeProcessor);
+        PaymentGateway walletGateway = new WalletPaymentGateway(stripeProcessor, consoleLogger);
 
         creditCardGateway.processPayment();
         walletGateway.processPayment();
@@ -16,8 +17,8 @@ public class ECommercePlatformExample {
         PaymentProcessor venmoProcessor = new VenmoPaymentProcessor();
         PaymentProcessor applePayProcessor = new ApplePayPaymentProcessor();
 
-        PaymentGateway mobilePaymentGateway = new MobilePaymentGateway(venmoProcessor);
-        PaymentGateway cryptoPaymentGateway = new CryptoPaymentGateway(applePayProcessor);
+        PaymentGateway mobilePaymentGateway = new MobilePaymentGateway(venmoProcessor, consoleLogger);
+        PaymentGateway cryptoPaymentGateway = new CryptoPaymentGateway(applePayProcessor, consoleLogger);
 
         mobilePaymentGateway.processPayment();
         cryptoPaymentGateway.processPayment();
