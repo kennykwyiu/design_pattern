@@ -10,7 +10,7 @@ public class AuthenticationSystemExample {
         TwoFactorAuthenticationDecorator twoFactorAuthentication = new TwoFactorAuthenticationDecorator(new BasicAuthentication());
         System.out.println("Two-Factor Authentication Result: " + twoFactorAuthentication.authenticate("admin", "admin123"));
 
-        Authentication roleBasedAuthentication = new RoleBasedAccessControlDecorator(new BasicAuthentication());
+        RoleBasedAccessControlDecorator roleBasedAuthentication = new RoleBasedAccessControlDecorator(new BasicAuthentication());
         System.out.println("Role-Based Authentication Result: " + roleBasedAuthentication.authenticate("admin", "admin123"));
 
         String username = "admin";
@@ -24,6 +24,18 @@ public class AuthenticationSystemExample {
         } else {
             System.out.println("Two-Factor Authentication Failed for User: " + username);
         }
+
+        Role adminRole = new Role("admin");
+        Role userRole = new Role("user");
+        roleBasedAuthentication.addRole(adminRole);
+        roleBasedAuthentication.addRole(userRole);
+
+        User adminUser = new User("admin", "admin123", "admin");
+        User regularUser = new User("user1", "user123", "user");
+
+        System.out.println("Admin Access: " + roleBasedAuthentication.checkAccess(adminUser, "adminResource"));
+        System.out.println("Regular User Access: " + roleBasedAuthentication.checkAccess(regularUser, "adminResource"));
+
     }
 
 }
