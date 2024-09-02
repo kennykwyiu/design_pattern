@@ -20,8 +20,20 @@ public class TwoFactorAuthenticationDecorator extends AuthenticationDecorator {
 
     @Override
     public boolean authenticate(String username, String password, String token) {
+        if (AccountLockout.isAccountLocked(username)) {
+            System.out.println("Account is locked. Please try again later.");
+            return false;
+        }
+
         if (new BasicAuthentication().authenticate(username, password)) {
-            return TwoFactorAuthenticationService.verifyToken(token);
+            if (TwoFactorAuthenticationService.verifyToken(token)) {
+                AccountLockout.resetFailedLoginAttempts(username);
+                return true;
+            } else {
+                AccountLockout.handleFailedLoginAttempt(username);
+            }
+        } else {
+            AccountLockout.handleFailedLoginAttempt(username);
         }
         return false;
     }
