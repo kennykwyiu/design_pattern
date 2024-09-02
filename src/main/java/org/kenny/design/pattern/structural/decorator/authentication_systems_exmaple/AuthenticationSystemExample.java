@@ -36,6 +36,15 @@ public class AuthenticationSystemExample {
         System.out.println("Admin Access: " + roleBasedAuthentication.checkAccess(adminUser, "adminResource"));
         System.out.println("Regular User Access: " + roleBasedAuthentication.checkAccess(regularUser, "adminResource"));
 
+        String usernameWrong = "user1";
+        String passwordWrong = "wrongpass";
+        String tokenWrong = "123456";
+
+        // Simulate 4 failed login attempts
+        for (int i = 0; i < 4; i++) {
+            twoFactorAuthentication.authenticate(usernameWrong, passwordWrong, tokenWrong);
+        }
+
     }
 
 }
