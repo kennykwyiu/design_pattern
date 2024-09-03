@@ -22,6 +22,7 @@ public class TwoFactorAuthenticationDecorator extends AuthenticationDecorator {
     public boolean authenticate(String username, String password, String token) {
         if (AccountLockout.isAccountLocked(username)) {
             System.out.println("Account is locked. Please try again later.");
+            AccountLockout.sendLockoutNotification(username);
             return false;
         }
 
