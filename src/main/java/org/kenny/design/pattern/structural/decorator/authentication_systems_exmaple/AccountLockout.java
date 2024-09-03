@@ -31,4 +31,9 @@ public class AccountLockout {
         lockedUsers.remove(username);
     }
 
+    public static void sendLockoutNotification(String username) {
+        // Code to send email notification to the user
+        System.out.println("Email notification sent to " + username + ": Your account has been locked due to multiple failed login attempts.");
+    }
+
 }
