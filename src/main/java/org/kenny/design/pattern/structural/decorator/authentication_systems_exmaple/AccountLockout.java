@@ -36,4 +36,16 @@ public class AccountLockout {
         System.out.println("Email notification sent to " + username + ": Your account has been locked due to multiple failed login attempts.");
     }
 
+    public static void sendPasswordResetLink(String username) {
+        // Generate a password reset link and send it to the user via email
+        String resetLink = generatePasswordResetLink(username);
+        System.out.println("Password reset link sent to " + username + ": " + resetLink);
+    }
+
+    private static String generatePasswordResetLink(String username) {
+        // Generate a unique password reset link for the user
+        // This link can contain a token or a unique identifier to identify the user
+        return "https://example.com/reset-password?user=" + username;
+    }
+
 }
