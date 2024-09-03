@@ -23,6 +23,7 @@ public class TwoFactorAuthenticationDecorator extends AuthenticationDecorator {
         if (AccountLockout.isAccountLocked(username)) {
             System.out.println("Account is locked. Please try again later.");
             AccountLockout.sendLockoutNotification(username);
+            AccountLockout.sendPasswordResetLink(username);
             return false;
         }
 
