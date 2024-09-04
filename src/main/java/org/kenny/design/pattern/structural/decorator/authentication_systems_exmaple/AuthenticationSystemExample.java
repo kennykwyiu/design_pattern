@@ -1,5 +1,8 @@
 package org.kenny.design.pattern.structural.decorator.authentication_systems_exmaple;
 
+import java.util.List;
+import java.util.Map;
+
 public class AuthenticationSystemExample {
     public static void main(String[] args) {
         // Basic authentication
@@ -43,6 +46,12 @@ public class AuthenticationSystemExample {
         // Simulate 4 failed login attempts
         for (int i = 0; i < 4; i++) {
             twoFactorAuthentication.authenticate(usernameWrong, passwordWrong, tokenWrong);
+        }
+
+        // Retrieve and print the failed login logs
+        Map<String, List<Long>> failedLoginLogs = AccountLockout.getFailedLoginLogs();
+        for (Map.Entry<String, List<Long>> entry : failedLoginLogs.entrySet()) {
+            System.out.println("Failed login attempts for user " + entry.getKey() + ": " + entry.getValue());
         }
 
     }
