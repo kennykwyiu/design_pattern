@@ -16,6 +16,9 @@ public class AccountLockout {
         Long lockTime = lockedUsers.get(username);
         if (lockTime != null && System.currentTimeMillis() - lockTime < LOCKOUT_DURATION_MS) {
             return true;
+        } else if (lockTime != null) {
+            // Automatically unlock the account after the lockout duration has passed
+            resetFailedLoginAttempts(username);
         }
         return false;
     }
