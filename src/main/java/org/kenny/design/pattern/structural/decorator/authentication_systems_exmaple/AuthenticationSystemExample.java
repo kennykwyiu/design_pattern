@@ -54,6 +54,10 @@ public class AuthenticationSystemExample {
             System.out.println("Failed login attempts for user " + entry.getKey() + ": " + entry.getValue());
         }
 
+        // Check if the account is still locked after the lockout duration
+        boolean isAccountLocked = AccountLockout.isAccountLocked(username);
+        System.out.println("Is account locked for user5 after lockout duration? " + isAccountLocked);
+
     }
 
 }
