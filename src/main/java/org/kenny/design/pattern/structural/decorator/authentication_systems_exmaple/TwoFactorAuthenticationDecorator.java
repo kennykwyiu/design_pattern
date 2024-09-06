@@ -1,6 +1,12 @@
 package org.kenny.design.pattern.structural.decorator.authentication_systems_exmaple;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TwoFactorAuthenticationDecorator extends AuthenticationDecorator {
+
+    private static final Map<String, String> backupCodes = new HashMap<>();
+
     public TwoFactorAuthenticationDecorator(Authentication authentication) {
         super(authentication);
     }
@@ -28,7 +34,7 @@ public class TwoFactorAuthenticationDecorator extends AuthenticationDecorator {
         }
 
         if (new BasicAuthentication().authenticate(username, password)) {
-            if (TwoFactorAuthenticationService.verifyToken(token)) {
+            if (TwoFactorAuthenticationService.verifyToken(token) || verifyBackupCode(username, token)) {
                 AccountLockout.resetFailedLoginAttempts(username);
                 return true;
             } else {
@@ -38,5 +44,18 @@ public class TwoFactorAuthenticationDecorator extends AuthenticationDecorator {
             AccountLockout.handleFailedLoginAttempt(username);
         }
         return false;
+    }
+
+    private boolean verifyBackupCode(String username, String code) {
+        String storedCode = backupCodes.get(username);
+        if (storedCode != null && storedCode.equals(code)) {
+            backupCodes.remove(username); // Remove the backup code after successful use
+            return true;
+        }
+        return false;
+    }
+
+    public void setBackupCode(String username, String backupCode) {
+        backupCodes.put(username, backupCode);
     }
 }
