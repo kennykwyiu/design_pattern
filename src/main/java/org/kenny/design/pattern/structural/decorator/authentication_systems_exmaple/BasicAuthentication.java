@@ -4,6 +4,6 @@ public class BasicAuthentication implements Authentication {
     @Override
     public boolean authenticate(String username, String password) {
         // Basic authentication logic
-        return "admin".equals(username) && "admin123".equals(password);
+        return "admin".equals(username) && "admin123".equals(password) ||"user6".equals(username) && "password123 ".equals(password) ;
     }
 }
