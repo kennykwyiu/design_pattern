@@ -44,9 +44,9 @@ public class AuthenticationSystemExample {
         String tokenWrong = "123456";
 
         // Simulate 4 failed login attempts
-        for (int i = 0; i < 4; i++) {
-            twoFactorAuthentication.authenticate(usernameWrong, passwordWrong, tokenWrong);
-        }
+//        for (int i = 0; i < 4; i++) {
+//            twoFactorAuthentication.authenticate(usernameWrong, passwordWrong, tokenWrong);
+//        }
 
         // Retrieve and print the failed login logs
         Map<String, List<Long>> failedLoginLogs = AccountLockout.getFailedLoginLogs();
@@ -57,6 +57,17 @@ public class AuthenticationSystemExample {
         // Check if the account is still locked after the lockout duration
         boolean isAccountLocked = AccountLockout.isAccountLocked(username);
         System.out.println("Is account locked for user5 after lockout duration? " + isAccountLocked);
+
+        String username6 = "user6";
+        String password6 = "password123";
+        String token6 = "123456";
+        String backupCode6 = "987654"; // Assume this is a backup code generated and provided to the user
+
+        twoFactorAuthentication.setBackupCode(username6, backupCode6);
+
+        // Simulate authentication using backup code
+        boolean isAuthenticatedOfUser6 = twoFactorAuthentication.authenticate(username6, password6, backupCode6);
+        System.out.println("Is user authenticated using backup code? " + isAuthenticatedOfUser6);
 
     }
 
